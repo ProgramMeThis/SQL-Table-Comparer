@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL Table Comparer", "SQL Table Comparer\SQL Table Comparer.csproj", "{ADAE9C4F-6B1D-44E5-8DB3-EE6F133BE7FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADAE9C4F-6B1D-44E5-8DB3-EE6F133BE7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAE9C4F-6B1D-44E5-8DB3-EE6F133BE7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAE9C4F-6B1D-44E5-8DB3-EE6F133BE7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE9C4F-6B1D-44E5-8DB3-EE6F133BE7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48C609F2-32EC-459A-BD7F-70457FD0D874}
+	EndGlobalSection
+EndGlobal
