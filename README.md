@@ -1,5 +1,9 @@
 # SQL Table Comparer
-This application lets users compare two SQL Server tables. They can be on the same or different servers. The user defines two different connections with the DatabaseConnectionProperties form, picks the two tables from the drop down menu and then runs the comparison. The application will list out all of the fields in each table on the two datagridviews and then will compare the two and color code the datagridviews. If the length of a field is the only thing off then that cell will be colored red. If the whole field doesn't exist in the other table then that whole row becomes red.
+This application lets users compare two SQL Server tables. They can be on the same or different servers. The user defines two different connections with the DatabaseConnectionProperties form, picks the two tables from the drop down menu and then runs the comparison. The application will list out all of the fields in each table on the two datagridviews and then will compare the two and color code the datagridviews. 
+
+If the whole field doesn't exist in the other table then that whole row becomes red. Otherwise, it will only color code the individual cell  of the attribute that is different. The application currently compares the following attributes: Maximum Length, Data Type, Is Nullable, Numeric Precision and DateTime Precision.
+
+
 
 # Forms
 ## TableComparer
