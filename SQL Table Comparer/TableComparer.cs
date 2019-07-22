@@ -42,7 +42,7 @@ namespace SQL_Server_Compare
             {
                 try
                 {
-                    string sqlQuery = "select column_name 'Column Name', data_type 'Data Type', character_maximum_length 'Maximum Length' from information_schema.columns where table_name = '" + table1ForComparison + "'";
+                    string sqlQuery = "select column_name 'Column Name', data_type 'Data Type', character_maximum_length 'Maximum Length', IS_NULLABLE as 'Is Nullable', NUMERIC_PRECISION as 'Numeric Precision', DATETIME_PRECISION as 'DateTime Precision' from information_schema.columns where table_name = '" + table1ForComparison + "'";
                     SqlDataAdapter sqlDA = new SqlDataAdapter(sqlQuery, tempSqlConnection);
                     DataSet ds = new DataSet();
                     sqlDA.Fill(ds);
@@ -60,7 +60,7 @@ namespace SQL_Server_Compare
             typeof(DataGridView).InvokeMember("DoubleBuffered", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty, null, table2DataGridView, new object[] { true });
             using (SqlConnection tempSqlConnection = new SqlConnection(sqlConnectionForTable2ForComparison.ConnectionString))
             {
-                string sqlQuery = "select column_name 'Column Name', data_type 'Data Type', character_maximum_length 'Maximum Length' from information_schema.columns where table_name = '" + table2ForComparison + "'";
+                string sqlQuery = "select column_name 'Column Name', data_type 'Data Type', character_maximum_length 'Maximum Length', IS_NULLABLE as 'Is Nullable', NUMERIC_PRECISION as 'Numeric Precision', DATETIME_PRECISION as 'DateTime Precision' from information_schema.columns where table_name = '" + table2ForComparison + "'";
                 SqlDataAdapter sqlDA = new SqlDataAdapter(sqlQuery, tempSqlConnection);
                 DataSet ds = new DataSet();
                 sqlDA.Fill(ds);
@@ -82,6 +82,9 @@ namespace SQL_Server_Compare
                 string fieldName = dgv1["Column Name", i].Value.ToString();
                 string maximumLength = dgv1["Maximum Length", i].Value.ToString();
                 string dataType = dgv1["Data Type", i].Value.ToString();
+                string isNullable = dgv1["Is Nullable", i].Value.ToString();
+                string numericPrecision = dgv1["Numeric Precision", i].Value.ToString();
+                string dateTimePrecision = dgv1["DateTime Precision", i].Value.ToString();
                 bool fieldExistsIn2ndDataGridView = false;
                 for (int j = 0; j < dgv2.Rows.Count; j++)
                 {
@@ -94,6 +97,18 @@ namespace SQL_Server_Compare
                         if (dgv2["Data Type", j].Value.ToString() != dataType)
                         {
                             dgv2["Data Type", j].Style.BackColor = Color.Red;
+                        }
+                        if (dgv2["Is Nullable", j].Value.ToString() != isNullable)
+                        {
+                            dgv2["Is Nullable", j].Style.BackColor = Color.Red;
+                        }
+                        if (dgv2["Numeric Precision", j].Value.ToString() != numericPrecision)
+                        {
+                            dgv2["Numeric Precision", j].Style.BackColor = Color.Red;
+                        }
+                        if (dgv2["DateTime Precision", j].Value.ToString() != dateTimePrecision)
+                        {
+                            dgv2["DateTime Precision", j].Style.BackColor = Color.Red;
                         }
                         fieldExistsIn2ndDataGridView = true;
                         break;
